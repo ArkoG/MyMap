@@ -1,16 +1,30 @@
 #MyMap mod for Crusader Kings 3, by ARKO
 
 MAP :
--
+-changed colour for HRE to golden
+-changed colours for e_germany ; k_bavaria ; k_east_francia ; d_swabia ; k_bohemia ; k_france ; k_aquitaine ; k_brittany ; k_burgundy ; 
 
 TITLE SETUP :
--
+-updated geographical regions according to new titles
+-new de jure duchies : d_trier ; d_cologne ; d_mainz
+-moved c_trier to d_trier, taken from d_upper_lorraine
+-moved c_cologne to d_cologne, taken from d_lower_lorraine
+-moved c_mainz to d_mainz, taken from d_west_franconia
+-moved d_upper_lorraine capital to c_nancy (was c_trier), preventing systematic eviction of the bishop
+-moved d_lower_lorraine capital to c_bergh (was c_cologne), preventing systematic eviction of the bishop
+-moved b_neuss to c_bergh, in lower lorraine (was in c_cologne)
+-moved b_adenau to c_sayn in lower lorraine  (was in c_koblenz)
 
 COATS OF ARMS :
--
+-adjusted the dynastic arms of Geneva family (was somehow misaligned)
+-woats of arms for the new de jure duchies : d_trier ; d_cologne ; d_mainz (taken from their county CoA)
 
 HISTORY :
--
+-update history for new titles
+-k_frisia is not de jure after 962 (makes k_lotharingia harder to creat in 1066)
+-are made de jure to k_lotharingia after 962 : d_utrecht ; d_frisia ; d_gelre ; d_holland
+-d_piedmonte only exists from 962 till 1046 (marquisate of Torino), hsitorical + prevents it to be primary title for Savoie
+-c_novara that was part of d_piemonte becomes de facto vassal of HRE in 1046
 
 TERRAIN :
 -
