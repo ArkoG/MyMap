@@ -1,6 +1,6 @@
 @echo off
 
-set modDir="D:\Docs\Paradox Interactive\Crusader Kings III\mod"
+set modDir="%HOMEDRIVE%%HOMEPATH%\Documents\Paradox Interactive\Crusader Kings III\mod"
 set modName="MyMap"
 set gitModDir=".\MyMap"
 
