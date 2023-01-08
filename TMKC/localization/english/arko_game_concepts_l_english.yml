@@ -1,5 +1,0 @@
-﻿l_english:
- game_concept_language_desc:3 "A Language is the [culture_pillar|E] that determines what language the general populace of a [culture|E] speaks. $game_concept_cultures$ which speak the same language gain a permanent bonus to their [cultural_acceptance_baseline|E].\n\nA [character|E] can know one or more Languages and by default knows and speaks as [primary_language|E] the language of his current culture.\nKnowing a language cuts the [cultural_acceptance|E] [opinion|E] penalty in half towards Characters and [counties|E] that speak it. It also discourages [faction_independence|E] and [claimant_factions|E].\n\nCharacters can learn additional languages by using the [GetScheme('learn_language').GetTypeName] [scheme|E]. Characters can comfortably learn languages up to their [language_limit|E]."
- game_concept_primary_language:1 "Primary Language"
- game_concept_primary_language_desc:1 "You can by default speak the [languages|E] of your current [culture|E]"
- 

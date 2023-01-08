@@ -1,4 +1,0 @@
-﻿l_english:
- NO_LEGACY:0 "No Legacy unlocked"
- CURRENT_LEGACY:0 "Legacy: [DynastyLegacyItem.GetLegacy.GetName]"
- HOUSE_VIEW_DYNASTY_PRESTIGE_next:1 "#high Next [dynasty_prestige_level|E]: [Dynasty.GetNextPrestigeLevelName]#!"

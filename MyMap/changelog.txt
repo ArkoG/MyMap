@@ -1,0 +1,19 @@
+#MyMap mod for Crusader Kings 3, by ARKO
+
+MAP :
+-
+
+TITLE SETUP :
+-
+
+COATS OF ARMS :
+-
+
+HISTORY :
+-
+
+TERRAIN :
+-
+
+WARS :
+-

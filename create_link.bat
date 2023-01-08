@@ -1,8 +1,8 @@
 @echo off
 
 set modDir="D:\Docs\Paradox Interactive\Crusader Kings III\mod"
-set modName="TmKC"
-set gitModDir=".\TmKC"
+set modName="MyMap"
+set gitModDir=".\MyMap"
 
 if not exist %modDir% (
 	echo ERROR: Ck3 mod directory not found. Searched repertory : %modDir%.

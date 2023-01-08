@@ -1,3 +1,0 @@
-﻿l_french:
- MAPMODE_DIPLOMACY_NAME:0 "Portée diplomatique"
- MAPMODE_DIPLOMACY:0 "#T $MAPMODE_DIPLOMACY_NAME$#!\nMontre la [diplomatic_range|E] sur la carte"

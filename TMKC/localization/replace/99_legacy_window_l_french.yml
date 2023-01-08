@@ -1,6 +1,0 @@
-﻿l_french:
-
- LEGACY_REIGN:1 "[LegacyItem.GetStartDate.GetYear]–[LegacyItem.GetEndDate.GetYear] ([LegacyItem.GetReignLength])"
- LEGACY_REIGN_TT:0 "[LegacyItem.GetStartDate.GetString] and [LegacyItem.GetEndDate.GetString]"
- LEGACY_REIGN_CURRENT:0 "[LegacyItem.GetStartDate.GetYear]–"
- 
