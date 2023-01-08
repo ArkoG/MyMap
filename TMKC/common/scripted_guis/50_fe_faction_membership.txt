@@ -1,0 +1,27 @@
+﻿
+fe_faction_membership_icon = {
+	scope = character
+
+	is_shown = {
+		exists = liege
+		liege = {
+			any_targeting_faction = {
+				any_faction_member = { this = root }
+			}
+		}
+	}
+
+	effect = {
+		if = {
+			limit = {
+				exists = root.joined_faction
+			}
+
+			set_variable = {
+				name = fe_faction
+				value = root.joined_faction
+			}
+			fe_calculate_faction_desire = yes
+		}
+	}
+}

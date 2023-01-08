@@ -1,0 +1,4 @@
+﻿l_english:
+ start_hunt_decision_location:0 "A hunt will start in the [activity_location.GetTerrain.GetNameNoTooltip] lands of [capital_barony.GetNameNoTooltip]"
+ start_hunt_decision_master_of_hunt2:0 "[Player.GetBaronyCapital.GetName]"
+ I_SPAWN_ACTIVITY:1 "You start a $TYPE|V$ near [COUNTY.GetName|V]"

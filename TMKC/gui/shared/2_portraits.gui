@@ -1,0 +1,105 @@
+types PortraitTypes
+{
+    ## Standard full body portrait
+    type portrait_body_council = widget {
+        size = { 120 300 } #
+		#size = { 210 300 }
+
+		using = porttrait_body 
+		
+        widget = {
+            size = { 100% 100% }
+            using = Portrait_Background_Glows
+        }
+
+        portrait_button = {
+            parentanchor = bottom|hcenter
+            size = { 240 330 }
+            using = portrait_base
+
+            block "portrait_texture" {
+                portrait_texture = "[Character.GetPortrait('environment_body', 'camera_body', 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+            }
+            block "mask" {
+                mask = "gfx/portraits/portrait_mask_body.dds"
+            }
+            effectname = "NoHighlight"
+
+            block "prison" {
+                highlight_icon = {
+                    name = "prison_bars"
+                    visible = "[Character.IsImprisoned]"
+                    size = { 100% 100% }
+                    effectname = "NoHighlight"
+                    texture = "gfx/portraits/portrait_prison_body.dds"
+
+                    modify_texture = {
+                        name = "mask"
+                        texture = "gfx/portraits/portrait_mask_body.dds"
+                        spriteType = Corneredstretched
+                        blend_mode = alphamultiply
+                    }
+                }
+            }
+
+            block "portrait_button" {}
+        }
+		block "portrait_status_icons"
+		{
+			portrait_status_icons = {
+				parentanchor = bottom|left
+				position = { 20 -5 }
+				scale = 0.85
+
+				background = {
+					using = Background_Area_Dark
+					margin = { 3 3 }
+					alpha = 0.8
+				}
+			}
+		}
+	
+        block "coa" {
+            coa_realm_medium_crown = {
+                visible = "[Character.HasLandedTitles]"
+                parentanchor = bottom|left
+                position = { -2 4 }
+            }
+        }
+
+        block "opinion_box"
+        {
+            portrait_opinion = {
+                parentanchor = bottom|hcenter
+                block "position_portrait_opinion_body" {
+                    position = { 0 -2 }
+                }
+            }
+        }
+
+        #portrait unknown glow
+        button = {
+            name = "portrait_unknown_body_glow"
+            parentanchor = center
+            position = { 0 -15 }
+            gfxtype = framedbuttongfx
+            effectname = "NoHighlight"
+            texture = "gfx/portraits/unknown_portraits/button_unknown_small.dds"
+            size = { 240 330 }
+            framesize = { 564 780 }
+            upframe = 1
+            overframe = 2
+
+            block "glow_visible" {
+
+                visible = "[Not(Character.IsValid)]"
+
+            }
+
+            block "glow_flip" {}
+
+            block "onclick" {}
+
+        }
+    }
+}

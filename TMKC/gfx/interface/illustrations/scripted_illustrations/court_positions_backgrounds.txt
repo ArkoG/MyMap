@@ -1,0 +1,111 @@
+﻿### Character interior background by Ketaros
+
+courtposition_view_bg = {
+	### vanilla ###
+	texture = {
+		trigger = { has_court_position = court_physician_court_position }
+		reference = "court_positions/vanilla/physician.dds"
+	}
+	texture = {
+		trigger = { has_court_position = chief_qadi_court_position }
+		reference = "court_positions/vanilla/chief_qadi.dds"
+	}
+	texture = {
+		trigger = { has_court_position = chief_eunuch_court_position }
+		reference = "court_positions/vanilla/chief_eunuch.dds"
+	}
+	texture = {
+		trigger = { has_court_position = court_jester_court_position }
+		reference = "court_positions/vanilla/court_jester.dds"
+	}
+	texture = {
+		trigger = { has_court_position = antiquarian_court_position }
+		reference = "court_positions/vanilla/antiquary.dds"
+	}
+	texture = {
+		trigger = { has_court_position = cupbearer_court_position }
+		reference = "court_positions/vanilla/cupbearer.dds"
+	}
+	texture = {
+		trigger = { has_court_position = champion_court_position }
+		reference = "court_positions/vanilla/personal_champion.dds"
+	}
+	texture = {
+		trigger = { has_court_position = court_gardener_court_position }
+		reference = "court_positions/vanilla/court_gardener.dds"
+	}
+	texture = {
+		trigger = { has_court_position = bodyguard_court_position }
+		reference = "court_positions/vanilla/bodyguard.dds"
+	}
+	texture = {
+		trigger = { has_court_position = court_tutor_court_position }
+		reference = "court_positions/vanilla/court_tutor.dds"
+	}
+	texture = {
+		trigger = { has_court_position = high_almoner_court_position }
+		reference = "court_positions/vanilla/high_almoner.dds"
+	}
+	texture = {
+		trigger = { has_court_position = executioner_court_position }
+		reference = "court_positions/vanilla/executioner.dds"
+	}
+	texture = {
+		trigger = { has_court_position = food_taster_court_position }
+		reference = "court_positions/vanilla/food_taster.dds"
+	}
+	texture = {
+		trigger = { has_court_position = seneschal_court_position }
+		reference = "court_positions/vanilla/seneschal.dds"
+	}
+	texture = {
+		trigger = { has_court_position = lady_in_waiting_court_position }
+		reference = "court_positions/vanilla/lady_in_waiting.dds"
+	}
+	texture = {
+		trigger = { has_court_position = royal_architect_court_position }
+		reference = "court_positions/vanilla/royal_architect.dds"
+	}
+	texture = {
+		trigger = { has_court_position = cultural_emissary_court_position }
+		reference = "court_positions/vanilla/cultural_emissary.dds"
+	}
+	texture = {
+		trigger = { has_court_position = master_of_hunt_court_position }
+		reference = "court_positions/vanilla/master_of_the_hunt.dds"
+	}
+	texture = {
+		trigger = { has_court_position = keeper_of_swans_court_position }
+		reference = "court_positions/vanilla/keeper_of_the_swans.dds"
+	}
+	texture = {
+		trigger = { has_court_position = court_musician_court_position }
+		reference = "court_positions/vanilla/court_musician.dds"
+	}
+	texture = {
+		trigger = { has_court_position = court_artificer_court_position }
+		reference = "court_positions/vanilla/court_artificer.dds"
+	}
+	texture = {
+		trigger = { has_court_position = master_of_horse_court_position }
+		reference = "court_positions/vanilla/master_of_the_horse.dds"
+	}
+	#texture = {
+	#	trigger = { has_court_position = court_poet_court_position }
+	#	reference = "court_positions/vanilla/court_poet.dds"
+	#}
+	texture = {
+		trigger = { has_court_position = garuda_court_position }
+		reference = "court_positions/vanilla/garuda.dds"
+	}
+	#fallback
+	texture = {
+		trigger = { has_any_court_position = yes }
+		reference = "event_scenes/study.dds"
+	}
+	#fallback
+	#texture = {
+	#	trigger = { has_any_court_position = yes }
+	#	reference = "court_positions/vanilla/default.dds"
+	#}
+}

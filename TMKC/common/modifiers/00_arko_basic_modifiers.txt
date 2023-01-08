@@ -1,0 +1,81 @@
+﻿# These modifiers are applied to characters of that tier
+unlanded_modifier = {
+}
+
+baron_modifier = {
+	domain_limit = 1
+	# Barons don't get to have knights
+}
+
+count_modifier = {
+	domain_limit = 2 #ex 2
+	knight_limit = 5
+	ai_amenity_target_baseline = -0.3
+	monthly_prestige = 0.2 #to compensate lack of court
+	#if = {
+	#	limit = { 
+	#		is_independent_ruler = yes
+	#		NOT = { has_government = clan_government }
+	#	}
+	#	monthly_prestige = 0.2
+	#	domain_limit = 1
+	#}
+}
+
+duke_modifier = {
+	domain_limit = 3 #ex 2
+	knight_limit = 6
+	vassal_limit = 20
+	ai_amenity_target_baseline = -0.2
+	mercenary_hire_cost_mult = 0.1
+	monthly_prestige = 0.2 #to compensate lack of court artifacts
+	#court_grandeur_expected_level = 95
+	#if = {
+	#	limit = { 
+	#		is_independent_ruler = yes
+	#		NOT = { has_government = clan_government }
+	#	}
+	#	monthly_prestige = 0.5
+	#	domain_limit = 1
+	#}
+}
+
+king_modifier = {
+	domain_limit = 5
+	knight_limit = 7
+	vassal_limit = 40
+	#court_grandeur_expected_level = 95 
+	mercenary_hire_cost_mult = 0.3
+}
+
+emperor_modifier = {
+	domain_limit = 3
+	knight_limit = 8
+	vassal_limit = 60
+	ai_amenity_target_baseline = 0.3
+
+	mercenary_hire_cost_mult = 0.6
+}
+
+# These modifiers are applied to the holder of a title of the respective tier (per title)
+held_barony_modifier = {
+	#monthly_prestige = 0.02
+	monthly_prestige = 0.05
+}
+held_county_modifier = {
+	#monthly_prestige = 0.05
+	monthly_prestige = 0.2
+}
+held_duchy_modifier = {
+	#monthly_prestige = 0.2
+	monthly_prestige = 0.5
+}
+held_kingdom_modifier = {
+	#monthly_prestige = 0.8
+	monthly_prestige = 1.0
+}
+held_empire_modifier = {
+	#monthly_prestige = 1.6
+	monthly_prestige = 2.0
+}
+

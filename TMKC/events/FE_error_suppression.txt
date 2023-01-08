@@ -1,0 +1,16 @@
+﻿
+namespace = FE_error_suppression
+
+FE_error_suppression.0001 = {
+	hidden = yes
+	orphan = yes
+
+	trigger = {
+		
+	}
+
+	immediate = {	
+		fix_variable_error = { X = fe_faction }
+		fix_variable_error = { X = fe_faction_total_desire }
+	}
+}

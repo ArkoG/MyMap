@@ -1,0 +1,82 @@
+﻿ep1_culture_legacy_track = {
+	is_shown = {
+		has_dlc_feature = hybridize_culture
+		dynasty = {
+			NOR = {
+				dynast = {
+					culture = {
+						OR = {
+							this = culture:norse
+							#any_parent_culture_or_above = {
+							any_parent_culture = {
+								this = culture:norse
+							}
+						}
+					}
+				}
+				dynast = {
+					NOT = {
+						culture = { has_cultural_tradition = tradition_isolationist }
+						culture = { has_cultural_tradition = tradition_staunch_traditionalists }
+						culture = { has_cultural_tradition = tradition_zealous_people }
+						culture = { has_cultural_tradition = tradition_faith_bound }
+					}
+				}
+			}
+			OR = {
+				dynast = {
+					OR = {
+						culture = { has_cultural_tradition = tradition_seafaring }
+						culture = { has_cultural_tradition = tradition_esteemed_hospitality }
+						culture = { has_cultural_tradition = tradition_astute_diplomats }
+						culture = { has_cultural_tradition = tradition_maritime_mercantilism }
+						culture = { has_cultural_tradition = tradition_culture_blending }
+						culture = { has_cultural_tradition = tradition_fp2_malleable_subjects }
+						culture = { has_cultural_tradition = tradition_malleable_invaders }
+						culture = { has_cultural_tradition = tradition_welcoming }
+						culture = { has_cultural_tradition = tradition_xenophilic }
+						culture = { has_cultural_tradition = tradition_diasporic }
+						culture = { has_cultural_tradition = tradition_language_scholars }
+						culture = { has_cultural_tradition = tradition_religion_blending }
+						culture = { has_cultural_tradition = tradition_african_tolerance }
+						culture = { has_cultural_tradition = tradition_steppe_tolerance }
+					}
+				}
+				#dynast = { NOT = { has_government = tribal_government }}
+				
+				has_dynasty_perk = fp1_adventure_legacy_1
+			}
+		}
+	}
+}
+
+warfare_legacy_track = {
+	#is_shown = { dynasty = { has_dynasty_perk = warfare_legacy_1 } }
+}
+
+law_legacy_track = {
+	#is_shown = { dynasty = { has_dynasty_perk = law_legacy_1 } }	
+}
+
+guile_legacy_track = {
+	#is_shown = { dynasty = { has_dynasty_perk = guile_legacy_1 } }	
+}
+
+blood_legacy_track = {
+	is_shown = {
+		always = no
+		is_ai = no
+	}
+}
+
+erudition_legacy_track = {
+	#is_shown = { dynasty = { has_dynasty_perk = erudition_legacy_1 } }	
+}
+
+glory_legacy_track = {
+	#is_shown = { dynasty = { has_dynasty_perk = glory_legacy_1 } }	
+}
+
+kin_legacy_track = {
+	#is_shown = { dynasty = { has_dynasty_perk = kin_legacy_1 } }	
+}

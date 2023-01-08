@@ -1,0 +1,353 @@
+﻿councillor_chancellor_level_up_chance_effects = {
+	if = {
+		limit = {
+			NOT = { 
+				has_trait = chancellor_3 
+				has_trait = lifestyle_chaplain
+				has_trait = lifestyle_marshal
+				has_trait = lifestyle_spymaster
+				has_trait = lifestyle_steward
+			}
+			is_alive = yes
+		}
+		random = {
+			#chance = 1 #1% every month
+			#chance = 0.04 #1% every 2 years
+			chance = 0.016 #1% every 5 years
+				modifier = {
+					factor = 0.8
+					is_ai = no
+				}
+				modifier = {
+					factor = 0.5 #once every 20 years
+					diplomacy <= low_skill_rating #5
+				}
+				modifier = {
+					factor = 0.5 #once every 10 years
+					diplomacy <= mediocre_skill_rating #8
+				}
+				#unchanged between 9 and 15, so once every 5 years
+				modifier = {
+					factor = 2  #once every 2,5 years
+					diplomacy >= very_skill_rating #15
+				}
+				modifier = {
+					factor = 1.5  #once every 1,7 years
+					diplomacy >= extremly_high_skill_rating #20
+				}
+			}
+			
+			scope:councillor_liege = {
+				send_interface_message = { 
+					left_icon = scope:councillor
+					type = event_chancellor_task_good
+					title = councillorlevelup
+					desc = councillorlevelup_desc
+					scope:councillor = {
+						councillor_chancellor_lifestyle_rank_up_effects = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+councillor_chancellor_lifestyle_rank_up_effects = {
+	if = {
+		limit = {
+			NOT = { has_trait = lifestyle_chancellor }
+		}
+		add_trait = chancellor_1
+	}
+	else = {
+		change_trait_rank = {
+			trait = lifestyle_chancellor
+			rank = 1
+			max = 3
+		}
+	}
+}
+
+councillor_chaplain_level_up_chance_effects = {
+	if = {
+		limit = {
+			NOT = { 
+				has_trait = chaplain_3 
+				has_trait = lifestyle_chancellor
+				has_trait = lifestyle_marshal
+				has_trait = lifestyle_spymaster
+				has_trait = lifestyle_steward
+			}
+			is_alive = yes
+		}
+		random = {
+			#chance = 1 #1% every month
+			#chance = 0.04 #1% every 2 years
+			chance = {
+				value = 0.016 #1% every 5 years
+				modifier = {
+					factor = 0.8
+					is_ai = no
+				}
+				modifier = {
+					factor = 0.5 #once every 20 years
+					learning <= low_skill_rating #5
+				}
+				modifier = {
+					factor = 0.5 #once every 10 years
+					learning <= mediocre_skill_rating #8
+				}
+				#unchanged between 9 and 15, so once every 5 years
+				modifier = {
+					factor = 2  #once every 2,5 years
+					learning >= very_skill_rating #15
+				}
+				modifier = {
+					factor = 1.5  #once every 1,7 years
+					learning >= extremly_high_skill_rating #20
+				}
+			}
+			
+			scope:councillor_liege = {
+				send_interface_message = { 
+					left_icon = scope:councillor
+					type = event_court_chaplain_task_good
+					title = councillorlevelup
+					desc = councillorlevelup_desc
+					scope:councillor = {
+						councillor_chaplain_lifestyle_rank_up_effects = yes		
+					}
+
+				}
+			}
+		}
+	}
+}
+
+councillor_chaplain_lifestyle_rank_up_effects = {
+	if = {
+		limit = {
+			NOT = { has_trait = lifestyle_chaplain }
+		}
+		add_trait = chaplain_1
+	}
+	else = {
+		change_trait_rank = {
+			trait = lifestyle_chaplain
+			rank = 1
+			max = 3
+		}
+	}
+}
+
+councillor_marshal_level_up_chance_effects = {
+	if = {
+		limit = {
+			NOT = { 
+				has_trait = marshal_3 
+				has_trait = lifestyle_chancellor
+				has_trait = lifestyle_chaplain
+				has_trait = lifestyle_spymaster
+				has_trait = lifestyle_steward
+			}
+			is_alive = yes
+		}
+		random = {
+			#chance = 1 #1% every month
+			#chance = 0.04 #1% every 2 years
+			chance = {
+				value = 0.016 #1% every 5 years
+				modifier = {
+					factor = 0.8
+					is_ai = no
+				}
+				modifier = {
+					factor = 0.5 #once every 20 years
+					martial <= low_skill_rating #5
+				}
+				modifier = {
+					factor = 0.5 #once every 10 years
+					martial <= mediocre_skill_rating #8
+				}
+				#unchanged between 9 and 15, so once every 5 years
+				modifier = {
+					factor = 2  #once every 2,5 years
+					martial >= very_skill_rating #15
+				}
+				modifier = {
+					factor = 1.5  #once every 1,7 years
+					martial >= extremly_high_skill_rating #20
+				}
+			}
+			scope:councillor_liege = {
+				send_interface_message = { 
+					left_icon = scope:councillor
+					type = event_marshal_task_good
+					title = councillorlevelup
+					desc = councillorlevelup_desc
+					scope:councillor = {
+						councillor_marshal_lifestyle_rank_up_effects = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+councillor_marshal_lifestyle_rank_up_effects = {
+	if = {
+		limit = {
+			NOT = { has_trait = lifestyle_marshal }
+		}
+		add_trait = marshal_1
+	}
+	else = {
+		change_trait_rank = {
+			trait = lifestyle_marshal
+			rank = 1
+			max = 3
+		}
+	}
+}
+
+councillor_spymaster_level_up_chance_effects = {
+	if = {
+		limit = {
+			NOT = { 
+				has_trait = spymaster_3 
+				has_trait = lifestyle_chancellor
+				has_trait = lifestyle_chaplain
+				has_trait = lifestyle_marshal
+				has_trait = lifestyle_steward
+			}
+			is_alive = yes
+		}
+		random = {
+			#chance = 1 #1% every month
+			#chance = 0.04 #1% every 2 years
+			chance = {
+				value = 0.016 #1% every 5 years
+				modifier = {
+					factor = 0.8
+					is_ai = no
+				}
+				modifier = {
+					factor = 0.5 #once every 20 years
+					intrigue <= low_skill_rating #5
+				}
+				modifier = {
+					factor = 0.5 #once every 10 years
+					intrigue <= mediocre_skill_rating #8
+				}
+				#unchanged between 9 and 15, so once every 5 years
+				modifier = {
+					factor = 2  #once every 2,5 years
+					intrigue >= very_skill_rating #15
+				}
+				modifier = {
+					factor = 1.5  #once every 1,7 years
+					intrigue >= extremly_high_skill_rating #20
+				}
+			}
+			scope:councillor_liege = {
+				send_interface_message = { 
+					left_icon = scope:councillor
+					type = event_spymaster_task_good
+					title = councillorlevelup
+					desc = councillorlevelup_desc
+					scope:councillor = {
+						councillor_spymaster_lifestyle_rank_up_effects = yes
+					}
+
+				}
+			}			
+		}
+	}
+}
+
+councillor_spymaster_lifestyle_rank_up_effects = {
+	if = {
+		limit = {
+			NOT = { has_trait = lifestyle_spymaster }
+		}
+		add_trait = spymaster_1
+	}
+	else = {
+		change_trait_rank = {
+			trait = lifestyle_spymaster
+			rank = 1
+			max = 3
+		}
+	}
+}
+
+councillor_steward_level_up_chance_effects = {
+	if = {
+		limit = {
+			NOT = { 
+				has_trait = steward_3 
+				has_trait = lifestyle_chancellor
+				has_trait = lifestyle_chaplain
+				has_trait = lifestyle_marshal
+				has_trait = lifestyle_spymaster
+			}
+			is_alive = yes
+		}
+		random = {
+			#chance = 1 #1% every month
+			#chance = 0.04 #1% every 2 years
+			chance = {
+				value = 0.016 #1% every 5 years
+				modifier = {
+					factor = 0.8
+					is_ai = no
+				}
+				modifier = {
+					factor = 0.5 #once every 20 years
+					stewardship <= low_skill_rating #5
+				}
+				modifier = {
+					factor = 0.5 #once every 10 years
+					stewardship <= mediocre_skill_rating #8
+				}
+				#unchanged between 9 and 15, so once every 5 years
+				modifier = {
+					factor = 2  #once every 2,5 years
+					stewardship >= very_skill_rating #15
+				}
+				modifier = {
+					factor = 1.5  #once every 1,7 years
+					stewardship >= extremly_high_skill_rating #20
+				}
+			}
+			scope:councillor_liege = {
+				send_interface_message = { 
+					left_icon = scope:councillor
+					type = event_steward_task_good
+					title = councillorlevelup
+					desc = councillorlevelup_desc
+					scope:councillor = {
+						councillor_steward_lifestyle_rank_up_effects = yes
+					}
+
+				}
+			}	
+		}
+	}
+}
+
+councillor_steward_lifestyle_rank_up_effects = {
+	if = {
+		limit = {
+			NOT = { has_trait = lifestyle_steward }
+		}
+		add_trait = steward_1
+	}
+	else = {
+		change_trait_rank = {
+			trait = lifestyle_steward
+			rank = 1
+			max = 3
+		}
+	}
+}

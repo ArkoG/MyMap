@@ -1,0 +1,86 @@
+#Councillor's experience trait by Slaneche (lite version, toned down, loc fixes FR)
+#Full-Body Liege by Ketaros (smaller)
+#Factions explained by Amtep (light - no character view UI)
+#Costly Cadet Branches by Temporal Mouse (no gold cost)
+#Monthly prestige gain for vassals of same dynasty by Slaneche (unaltered)
+#Court offices by Ketaros (light rework)
+#Less Restricted Iberian Legacies mod by FunGaming44 (slight adujstements)
+
+Graphics :
+-Better lowest level currencies (piety, prestige icons)
+-Better looking perks icons
+-better innovation button frame and glow
+
+Lifestyles :
+-Perks cost more (1500 instead of 1000)
+-bonus from education traits on XP gain is higher (10% 25% 40% 60% instead of 10% 20% 30% 40%)
+-Final traits given from a completed tree gives a -25% malus to XP gain
+-rwk
+
+Gameplay : Court :
+-banners court artifacts can't be used by other dynasties
+-adopt court languages values revised (no more Shaz turkic courts everywhere)
+
+Rules :
+-casus_belli_costs can't be set to zero
+-default culture_conversion_speed is set to "slower", significant faster option is removed
+-default religion_conversion_speed is set to "slower", significant faster option is removed
+-diplomatic_range now defaults to "restricted_diplomatic_range"
+-generate_families now defaults to "on_generate_families_ai_only"
+-scandinavian_adventurersnow defaults to "scandi_adventurers_occasional"
+
+GUI :
+GUI : main view HUD :
+Left bottom bar :
+-character in left corner is bigger
+-realm banner in left bottom bar is bigger
+-dynastic CoA in left bottom bar is bigger
+-additional left bottom bar button : Lineage (replacing right bottom submenu)
+-additional left bottom bar button : Go to Capital (replacing right bottom submenu)
+-additional left bottom bar button : Memories (~duplicate from character view)
+-additional left bottom bar button : Royal Court (~duplicate from right sidebar), gives expected court grandeur level
+
+Right bottom bar :
+-made extra menu button specialized for seachin, gave it an appropriate icon for that. It opens the sub-menu for "Find title" and "Find character"
+-inverted encyclopedia icon so now it comes before pause menu icons
+
+Mapmodes :
+-no more sub-menu for mapmodes
+-additional mapmodes taken from sub-menu : Court language, County development, players in multiplayer
+-additional mapmode taken from sub-menu : Diplomatic range
+-removed access to some slightly useless mapmodes (you can still use them for console command screenshots) : dejure counties, simple terrain, governements
+-reworked the mapmodes container
+-de jure mapmodes icons background are slightly more colorful
+-made religion mapmode icon neutral (no more a christian cross for everyone)
+-made a proper tooltip for diplomatic range mapmode
+
+GUI, Character view :
+-Royal court button is slightly bigger
+-House name is now a button, it opens dynastic tree
+-removed stress widget, it is displayed already on main screen and was only shown for player character
+-Languages is always displayed and gives more details
+-Language identifies the primary language of a character (language attached to its current culture)
+
+House view :
+-Overhauled
+
+Right top bar :
+-
+-
+-
+
+GAMEPLAY :
+-add "primary language" game concept
+-tribal spend piety on court physician salary instead of gold
+-some royal ranked court position salaries are prestige instead of gold (food taster, royal architect, high almoner)
+-court jester and executioner receive no salary
+-mystic traits for court physician are more valued for tribal
+-some ethos now gets some governements based weightening
+-legacies now gets a weightening based on ethos combination (1 malus and 1 bonus usually )
+-removed blood legacy, recycled its illustration for kin legacy
+-EP1 legacy is now restricted accordingly to some cultural traditions
+
+
+BALANCE :
+-reduced grandeur bonus from amenities
+-culture legacy second perk now gives a bonus to diplomatic range instead of additional learn language scheme slot

@@ -1,0 +1,175 @@
+﻿hre_vicary_court_position = {
+	max_available_positions = 1
+	category = court_position_category_special
+	minimum_rank = empire #ARKO add for categorization
+
+	opinion = { 
+		value = ceremonial_court_position_opinion #AKA 10 @crown_authority_1
+		scope:liege = {
+			if = { 
+				limit = { has_realm_law = crown_authority_2 }
+				value = 20
+			}
+			if = { 
+				limit = { has_realm_law = crown_authority_3 }
+				value = 30
+			}
+		}
+	}
+	
+	# How high the aptitude has to be to reach the 5 different modifier levels
+	aptitude_level_breakpoints = { 20 40 60 80 }
+
+	# How good is this character in this position? root scope is the holder of the court position
+	aptitude = {
+		value = 25
+		add = {
+			value = diplomacy
+			multiply = 2
+			max = 30
+			desc = court_position_skill_diplomacy
+		}
+		add = {
+			value = learning
+			multiply = 1.5
+			max = 20
+			desc = court_position_skill_learning
+		}
+		add = {
+			value = intrigue
+			multiply = 1.1
+			max = 20
+			desc = court_position_skill_intrigue
+		}
+		if = {
+			limit = {
+				has_trait = diplomat
+			}
+			add = {
+				value = 40
+				desc = court_position_diplomat_trait
+			}
+		}
+		if = {
+			limit = {
+				has_trait = diplomatic_court
+			}
+			add = {
+				value = 20
+				desc = court_position_diplomatic_court_trait
+			}
+		}
+		add = court_position_aptitude_family_business_value
+		#add = court_position_aptitude_low_penalty_value
+	}
+
+	is_shown = { 
+		has_title = title:e_hre
+	}
+	
+	# Is this an available position for this court? (root is court owner)
+	valid_position = { 
+		has_title = title:e_hre
+		has_realm_law = crown_authority_1
+	}
+
+	is_shown_character = {
+		scope:employee = {
+			is_vassal_of = scope:liege #must be vassal to vote
+			is_imprisoned = no
+			highest_held_title_tier < tier_duchy
+		}
+	}
+
+	valid_character = {
+		scope:liege = { has_title = title:e_hre }
+		scope:employee = {
+			NOT = { is_spouse_of = scope:liege }
+			trigger_if = {
+				limit = { NOT = { has_court_position = hre_vicary_court_position } }
+				court_position_does_not_already_have_a_job_trigger = yes # This positions is considered a job, and cannot be held at the same tims as another similar position
+			}
+		}
+	}
+
+	revoke_cost = {
+		prestige =  {
+			value = major_court_position_prestige_revoke_cost
+
+			# Set to 0 with Dynasty Perk Inner Circle
+			if = {
+				limit = {
+					exists = dynasty
+					dynasty = { has_dynasty_perk = fp2_coterie_legacy_1 }
+
+					employs_court_position = seneschal_court_position
+					any_court_position_holder = {
+				        type = seneschal_court_position
+						exists = dynasty
+						house = prev.house
+					}
+				}
+				multiply = 0
+			}
+		}
+	}
+
+	salary = {
+		round = no
+		gold = {
+			value = major_court_position_salary
+		}
+	}
+
+	# These modifiers are employed based on what level the aptitude reaches (levels are defined as breakpoints) 
+	scaling_employer_modifiers = {
+		aptitude_level_1 = {
+		  	monthly_county_control_change_add = 0.1
+			monthly_court_grandeur_change_mult = 0.10
+		}
+		aptitude_level_2 = {
+		  	monthly_county_control_change_add = 0.1
+			court_grandeur_baseline_add = 1
+		}
+		aptitude_level_3 = {
+		  	monthly_county_control_change_add = 0.2
+			court_grandeur_baseline_add = 1
+		}
+		aptitude_level_4 = {
+		  	monthly_county_control_change_add = 0.2
+			court_grandeur_baseline_add = 2
+		}
+		aptitude_level_5 = {
+		  	monthly_county_control_change_add = 0.3
+			court_grandeur_baseline_add = 2
+		}
+	}
+
+	modifier = {
+		monthly_prestige = medium_court_position_prestige_salary
+		diplomacy = 3
+		independent_ruler_opinion = 10
+		vassal_opinion = 10
+	}
+
+	on_court_position_received = {
+		basic_gained_court_position_effect = yes
+		scope:employee = { add_trait = imperial_vicar }
+	}
+	on_court_position_revoked = { 
+		basic_revoked_court_position_effect = yes
+		scope:employee = { remove_trait = imperial_vicar }
+	}
+	on_court_position_invalidated = {
+		basic_invalidated_court_position_effect = yes
+		scope:employee = { remove_trait = imperial_vicar }
+	}
+	# Scripted value to determine whether an AI will hire/fire a position or not. Hires over 0, fires under -50. Look in _court_positions.info for more extensive documentation!
+	candidate_score = {
+		value = 50
+		add = scope:base_value
+		add = court_position_candidate_score_base_value
+		add = court_position_candidate_aptitude_value
+		add = court_position_seneschal_debt_considerations_value
+	}
+}

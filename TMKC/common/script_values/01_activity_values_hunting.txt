@@ -1,0 +1,141 @@
+﻿######################
+# FEAST STUFF
+######################
+standard_feast_cooldown_time = {
+	value = 1825
+	if = {
+		limit = {
+			root.culture = {
+				has_cultural_parameter = more_frequent_feasts
+			}
+		}
+		multiply = 0.5
+	}
+	
+	###ARKO additions, all four bring value under 50%
+	if = {
+		limit = {
+			any_court_position_holder = {
+				type = cupbearer_court_position
+			}
+		}
+		multiply = 0.9
+	}
+	#poetry can entertain
+	if = {
+		limit = {
+			any_court_position_holder = {
+				type = court_poet_court_position
+			}
+		}
+		multiply = 0.9
+	}
+	if = {
+		limit = {
+			any_court_position_holder = {
+				type = court_jester_court_position
+			}
+		}
+		multiply = 0.8
+	}
+	#music adds fun
+	if = {
+		limit = {
+			any_court_position_holder = {
+				type = court_musician_court_position
+			}
+		}
+		#multiply = 0.7
+	}
+	#lifestyle
+	if = {
+		limit = { has_trait = lifestyle_reveler }
+		multiply = 0.2 #once a year
+	}
+	#more often with friends
+	if = {
+		limit = { 
+			any_courtier = {
+				OR = {
+					AND = {
+						has_relation_friend = root
+						has_trait = lifestyle_reveler
+					}
+					AND = {
+						has_relation_best_friend = root
+						has_trait = lifestyle_reveler
+					}
+				}
+			}
+		}
+		multiply = 0.8
+	}
+}
+
+######################
+# HUNT STUFF
+######################
+
+standard_hunting_cooldown_time = {
+	value = 1825
+	if = {
+		limit = {
+			root.culture = {
+				has_cultural_parameter = more_frequent_hunts
+			}
+		}
+		multiply = 0.5
+	}
+	
+	###ARKO additions
+	#lifestyle/court position
+	if = {
+		limit = {
+			OR = {
+				has_trait = lifestyle_hunter
+				has_court_position = master_of_hunt_court_position
+			}
+		}
+		multiply = 0.2 #once a year
+	}
+	#hunting is a good occasion to study nature
+	if = {
+		limit = { has_trait = lifestyle_herbalist }
+		multiply = 0.9
+	}
+	#more often with friends
+	if = {
+		limit = { 
+			any_courtier = {
+				OR = {
+					AND = {
+						has_relation_friend = root
+						has_trait = lifestyle_hunter
+					}
+					AND = {						
+						has_relation_best_friend = root
+						has_trait = lifestyle_hunter
+					}
+				}
+			}
+		}
+		multiply = 0.8
+	}
+	if = {
+		limit = { 
+			any_courtier = {
+				OR = {
+					AND = {
+						has_relation_friend = root
+						has_trait = lifestyle_herbalist
+					}
+					AND = {						
+						has_relation_best_friend = root
+						has_trait = lifestyle_herbalist
+					}
+				}
+			}
+		}
+		multiply = 0.9
+	}
+}

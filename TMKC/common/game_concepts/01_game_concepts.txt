@@ -1,0 +1,4 @@
+﻿primary_language = {
+	#alias = { languages }
+	texture = "gfx/interface/icons/icon_culture.dds"
+}

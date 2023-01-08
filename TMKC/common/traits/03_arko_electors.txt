@@ -1,0 +1,29 @@
+﻿###ARKOmod###
+#HRE elector traits
+
+imperial_elector = {
+	desc = imperial_elector
+	fame = yes	
+
+	shown_in_ruler_designer = no
+	opposites = { imperial_vicar }
+	
+	diplomacy = 1
+	vassal_opinion = -10
+	monthly_lifestyle_xp_gain_mult = 0.05
+	monthly_prestige_gain_mult = 0.10 #+10%
+}
+
+imperial_vicar = {
+	desc = imperial_vicar
+	fame = yes	
+
+	shown_in_ruler_designer = no
+	opposites = { imperial_elector }
+	
+	diplomacy = 3
+	independent_ruler_opinion = 10
+	vassal_opinion = 10
+	monthly_lifestyle_xp_gain_mult = 0.05
+	monthly_prestige = 0.25 #+0.25/m
+}

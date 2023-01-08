@@ -1,0 +1,40 @@
+﻿l_english:
+ OPEN_ROYAL_COURT_TOOLTIP_ARKO:1 "#T Show [royal_court]#!\n$EFFECT_LIST_BULLET$Your [court_grandeur_expectations|E] are set to #T [CourtGrandeurData.GetMinimumExpectedLevel]#!\n$EFFECT_LIST_BULLET$Your current [court_grandeur_level|E] is at #T [CourtGrandeurData.GetCurrentLevel]#!"
+ OPEN_ROYAL_COURT_TOOLTIP_ARKO2:1 "#T Show [royal_court]#!\nYou do not have access to the [royal_court|E].\n@warning_icon!#X You are not a [duke|E], [king|E] or [emperor|E]#!"
+ NO_ROCO_WRONG_TIER:0 "@warning_icon!#X You are not a [duke|E], [king|E] or [emperor|E]#!"
+ #from memories_view
+ OPEN_MEMORIES_TOOLTIP_charview:0 "#T Show Memories #!\nSee the Memories of this character"
+ OPEN_MEMORIES_TOOLTIP_hud:0 "#T Show Memories #!\nSee all [Character.GetShortUINamePossessiveNoTooltip] character's memories."
+ #ingame_main
+ MORE_POPOUT_TT:0 "#T Find...#!\nSearch for a [character|E] or a [title|E]"
+ IM_TT_GO_TO_CAPITAL:0 "#T Go to Capital#!\nFocus back on [GetPlayer.GetCapitalLocation.GetName|V]."
+
+ OPEN_ELECTIVE_TOOLTIP1:0 "#T Show Election #!\nSee [Character.GetTopLiege.GetPrimaryTitle.GetName|V] active election.\nThis is your [top_liege|E]'s title."
+ OPEN_ELECTIVE_TOOLTIP2:0 "#T Show Election #!\nSee [Character.GetLiege.GetPrimaryTitle.GetName|V] active election.\nThis is your [liege|E]'s title."
+ OPEN_ELECTIVE_TOOLTIP3:0 "#T Show Election #!\nSee [Character.GetPrimaryTitle.GetName|V] active election.\nThis is your [primary_title|E]."
+ election_icanvote_own:0 "#T Elector #!\nAs current holder of [Character.GetPrimaryTitle.GetName|V] you could vote for its successor."
+ election_icanvote_liege:0 "#T Elector #!\nYou are an elector for [Character.GetLiege.GetPrimaryTitle.GetName|V] and could vote to choose a successor."
+ election_icanvote_tliege:0 "#T Elector #!\nYou are an elector for [Character.GetTopLiege.GetPrimaryTitle.GetName|V] and could vote to choose a successor."
+ SUCCESSION_ELECTION_WINDOW_CANDIDATE_RANK1:0 "Rank: #high;bold [SuccessionElectionWindowCandidate.GetElectionRank|V]#!"
+ SUCCESSION_ELECTION_WINDOW_CANDIDATE_RANKED:0 "Rank: [SuccessionElectionWindowCandidate.GetElectionRank|V]"
+ SUCCESSION_ELECTION_WINDOW_CANDIDATE_RANK0:0 "#N No vote #!"
+
+ SUCCESSION_ELECTION_WINDOW_ELECTORATE:0 "[SuccessionElectionWindow.GetTitle.GetTierAsNamePossessiveNoTooltip] Electorate"
+ VIEW_CLICK_COA:0 "Click the Coat of Arms to view"
+ NOMINATE_CANDIDATE_TOOLTIP_CANT_VOTE:0 "#T Cast vote#!\n@warning_icon!#X You are not one of the [electors|E] and cannot vote"
+
+ #SUCCESSION_ELECTION_WINDOW_MY_CANDIDATE_STANCE:0 "[SelectLocalization( EqualTo_int32( SuccessionElectionWindowCandidate.GetElectionRank, '(int32)1' ), #P 'SUCCESSION_ELECTION_WINDOW_STANCE_WIN' #!, #N 'SUCCESSION_ELECTION_WINDOW_STANCE_LOSS' #! )]"
+ SUCCESSION_ELECTION_WINDOW_MY_CANDIDATE_STANCEpos:0 "#low $SUCCESSION_ELECTION_WINDOW_MY_CANDIDATE$, #! #P $SUCCESSION_ELECTION_WINDOW_STANCE_WIN$ #!"
+ SUCCESSION_ELECTION_WINDOW_MY_CANDIDATE_STANCEneg:0 "#low $SUCCESSION_ELECTION_WINDOW_MY_CANDIDATE$, #! #N $SUCCESSION_ELECTION_WINDOW_STANCE_LOSS$ #!"
+ SUCCESSION_ELECTION_WINDOW_MY_CANDIDATE_STANCEne:0 " "
+
+
+ elector_upper_nobility:0 "#T Great of the Realm #!\nThis is the assembly of more powerful [rulers|E] by right or by force."
+ elector_upper_clergy:0 "#T High Clergy #!\nThese are the upper class from the [Concept('theocracy','Clergy')|E] who are member of the electorate."
+ elector_lower_nobility:0 "#T Lower Nobility #!\nThese are the other feudal vassals [electors|E] who can vote."
+ elector_lower_clergy:0 "#T Lower Clergy #!\nThese are the lesser [Concept('theocracy','Clergy')|E] electors."
+ elector_republics:0 "#T Cities #!\nThese are representing the vote of autonomous [Concept('republic','Cities and Republics')|E]."
+
+ electorate_desc:0 "The titles holders who can vote for the next ruler are the categorized based on their rank and type."
+
+CV_TAB_COUNCIL:1 "Councillors"

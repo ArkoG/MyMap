@@ -1,0 +1,4 @@
+﻿
+# Compat with mod Loyal to a Fault.
+# If LTAF is loaded, it will override this definition.
+LTAF_loyalty = 0

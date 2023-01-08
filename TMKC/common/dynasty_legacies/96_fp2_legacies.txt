@@ -1,0 +1,66 @@
+﻿###99% taken from Less Restricted Iberian Legacies mod by FunGaming44
+
+# TO DO: should be available for any character involved in the Struggle instead of checking Iberian heritage
+fp2_urbanism_legacy_track = {
+	is_shown = {
+		has_dlc_feature = the_fate_of_iberia
+		dynasty = {
+			OR = {
+				dynast = {
+					any_character_struggle = {
+						involvement = involved
+					}
+				}
+
+				dynast = {
+					OR = {
+						culture = { has_cultural_tradition = tradition_republican_legacy }
+						culture = { has_cultural_tradition = tradition_parochialism }
+						culture = { has_cultural_tradition = tradition_city_keepers }
+						culture = { has_cultural_pillar = heritage_iberian }
+						}
+				}
+				#dynast = {
+				#	AND = {
+				#		exists = capital_province
+				#		capital_province = {
+				#			graphical_region = world_europe_west_iberia
+				#		}
+				#	}
+				#}
+
+				has_dynasty_perk = fp2_urbanism_legacy_1
+
+			}
+		}
+	}
+}
+
+# TO DO: should be available for any character involved in the Struggle instead of checking Iberian heritage
+fp2_coterie_legacy_track = {
+	is_shown = {
+		has_dlc_feature = the_fate_of_iberia
+		dynasty = {
+			OR = {
+				dynast = {
+					any_character_struggle = {
+						involvement = involved
+					}
+				}
+
+				dynast = {
+					OR = {
+						culture = { has_cultural_tradition = tradition_family_entrepreneurship}
+						culture = { has_cultural_tradition = tradition_tribe_unity }
+						culture = { has_cultural_tradition = tradition_strong_kinship }
+						culture = { has_cultural_tradition = tradition_mystical_ancestors }
+						culture = { has_cultural_pillar = ethos_communal }
+						culture = { has_cultural_pillar = heritage_iberian }
+					}
+				}
+
+				has_dynasty_perk = fp2_coterie_legacy_1
+			}
+		}
+	}
+}

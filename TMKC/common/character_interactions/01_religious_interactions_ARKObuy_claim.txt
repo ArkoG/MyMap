@@ -1,0 +1,635 @@
+﻿# Interaction used to convert people when you reform or create a faith
+
+# House head demand conversion
+
+####################
+# Communion tenets #
+# by Sean Hughes	#
+####################
+
+### End Communion tenets ###
+
+#Ask to take the vows to join Holy order
+#by Linnéa Thimrén & Bianca Savazzi
+
+#Ask to take the vows for a monastery
+#by Linnéa Thimrén & Bianca Savazzi
+
+### End Monasticism tenets ###
+
+#########################
+# Temporal Condemnation
+# by Petter Vilberg
+#########################
+
+#########################
+# Host Honored Guest
+# by Sean Hughes
+#########################
+
+
+hof_ask_for_claim_interaction = {
+	category = interaction_category_diplomacy
+	icon = religious_claim
+
+	desc = hof_ask_for_claim_interaction_desc
+	target_type = title
+	target_filter = secondary_recipient_domain_titles
+	redirect = {
+		if = {
+			limit = {
+				exists = scope:actor.faith.religious_head
+			}
+			scope:recipient = {
+				save_scope_as = secondary_recipient
+			}
+			scope:actor.faith.religious_head = {
+				save_scope_as = recipient
+			}
+		}
+	}
+
+	has_valid_target_showing_failures_only = {
+		scope:target = { tier >= tier_county }
+	}
+	
+	is_shown = {
+		exists = scope:actor.faith.religious_head
+		scope:actor.faith = scope:secondary_recipient.faith
+		NOR = {
+			scope:actor = scope:secondary_recipient
+			scope:secondary_recipient = scope:recipient
+		}
+		exists = scope:actor.faith.religious_head
+		scope:actor.faith = {
+			has_doctrine = doctrine_spiritual_head
+		}
+		scope:secondary_recipient = {
+			is_landed = yes
+			primary_title = { tier >= tier_county }
+			NOT = { has_government = holy_order_government }
+		}
+	}
+	
+	is_valid_showing_failures_only = {
+		trigger_if = { # Can't request on titles you already have a pressed claim on
+			limit = {
+				exists = scope:target
+				scope:actor = {
+					has_strong_claim_on = scope:target
+				}
+			}
+			custom_description = {
+				text = "hof_ask_for_claim_has_pressed_claim_already"
+				always = no
+			}
+		}
+		trigger_if = { # Can't request claims on baronies
+			limit = {
+				OR = {
+					scope:recipient.highest_held_title_tier = tier_barony
+					AND = {
+						exists = scope:target
+						scope:target = {
+							tier = tier_barony
+						}
+					}
+				}
+			}
+			custom_description = {
+				text = "hof_ask_for_claim_no_baronies"
+				always = no
+			}
+		}
+		trigger_if = { # Can't request claims on theocratic lessees or theocracies (= Prince-Bishops)
+			limit = {
+				scope:secondary_recipient = { 
+					has_government = theocracy_government
+				}
+			}
+			custom_description = {
+				text = "hof_ask_for_claim_theocratic_lessee"
+				always = no	
+			}	
+		}
+		
+		###ARKO
+		#taking into account general piety level from both parts
+		scope:actor = { piety_level >= 1 }
+		scope:recipient = { piety_level <= 1 }
+		#ARKO
+		
+		scope:actor = { # Variable piety cost depending on tier
+			trigger_if = {
+				limit = {
+					exists = scope:target
+				}
+				piety >= claim_piety_value
+			}
+			custom_description = {
+				text = "hof_ask_for_claim_excommunicated"
+				NOT = { has_trait = excommunicated }
+			}
+			NOT = {
+				is_at_war_with = scope:recipient
+			}
+		}
+		scope:actor = {
+			custom_description = {
+				text = "hof_interaction_unreformed_faith"
+				NOT = {
+					faith = { has_doctrine_parameter = unreformed }
+				}
+			}
+		}
+		scope:recipient = { is_busy_in_events_localised = yes }
+		scope:secondary_recipient = { NOT = { has_strong_hook = scope:actor } }
+	}
+	
+	ai_accept = {
+		base = 0 # Should be 0 for all interactions
+
+		modifier = {
+			scope:claim_hook = yes
+			add = 100
+			desc = SCHEME_WEAK_HOOK_USED
+		}
+		
+		modifier = {
+			add = -50
+			desc = BASE_RELUCTANCE
+		}
+		
+		modifier = { # Practically impossible to claim Kingdoms/Empires when already King/Emperor
+			add = -1000
+			desc = I_AM_ALREADY_HIGH_TIER
+			scope:actor.primary_title = {
+				tier >= tier_kingdom
+			}
+			scope:target = {
+				tier >= tier_kingdom
+			}
+		}
+		
+		modifier = { # Characters with a pressed claim on a kingdom or empire already has a reduced chance of getting a claim on a kingdom or empire
+			add = -200
+			desc = I_ALREADY_HAVE_A_KINGDOM_OR_EMPIRE_CLAIM
+			scope:actor = {
+				any_claim = {
+					pressed = yes
+					tier >= tier_kingdom
+				}
+			}
+			scope:target = {
+				tier >= tier_kingdom
+			}
+		}
+		
+		opinion_modifier = { # More likely if Recipient likes Actor
+			who = scope:recipient
+			opinion_target = scope:actor
+			multiplier = 0.5
+			desc = AI_OPINION_REASON
+		}
+		
+		modifier = { # Same language
+			add = 5
+			desc = speaks_same_language_interaction_reason
+			trigger = {
+				scope:actor = {
+					knows_language_of_culture = scope:recipient.culture
+				}
+			}
+		}
+		
+		opinion_modifier = { # Unlikely if Recipient likes Secondary Recipient
+			who = scope:recipient
+			opinion_target = scope:secondary_recipient
+			multiplier = -1
+			desc = AI_OPINION_REASON
+		}
+		
+		modifier = { # Less likely the lower their tier is compared to you
+			add = {
+				add = -10
+				if = {
+					limit = {
+						scope:actor = {
+							tier_difference = {
+								target = scope:secondary_recipient
+								value >= 2
+							}
+						}
+					}
+					add = -10
+				}
+				if = {
+					limit = {
+						scope:actor = {
+							tier_difference = {
+								target = scope:secondary_recipient
+								value >= 3
+							}
+						}
+					}
+					add = -10
+				}
+			}
+			desc = THEY_ARE_LOWER_TIER
+			scope:actor = {
+				tier_difference = {
+					target = scope:secondary_recipient
+					value >= 1
+				}
+			}
+		}
+
+		modifier = { # Penalty for asking claims on your own vassals
+			add = -50
+			desc = THEY_ARE_YOUR_VASSAL
+			scope:actor = {
+				any_vassal_or_below = {
+					this = scope:secondary_recipient
+				}
+			}
+		}
+		
+		###ARKO more subtle age criterias
+		modifier = { # Bonus for adults to ask on children
+			add = 25
+			desc = THEY_ARE_A_CHILD
+			scope:secondary_recipient = {
+				is_adult = no
+				age <=10 #limitation for very underage
+			}
+			scope:actor = {
+				is_adult = yes
+			}
+		}
+		
+		modifier = { # Penalty for children to ask on adults
+			add = -25
+			desc = I_AM_A_CHILD
+			scope:secondary_recipient = {
+				is_adult = yes
+			}
+			scope:actor = {
+				is_adult = no
+				age <=10 #limitation for very underage
+			}
+		}
+		modifier = { # Bonus for adults to ask on children
+			add = 10
+			desc = THEY_ARE_A_TEEN
+			scope:secondary_recipient = {
+				is_adult = no
+				age >10 #weaker influence on older childs
+			}
+			scope:actor = {
+				is_adult = yes
+			}
+		}
+		
+		modifier = { # Penalty for children to ask on adults
+			add = -10
+			desc = I_AM_A_TEEN
+			scope:secondary_recipient = {
+				is_adult = yes
+			}
+			scope:actor = {
+				is_adult = no
+				age >10 #weaker influence on older childs
+			}
+		}
+		###
+		modifier = { # Bonus for men if a woman under male preference
+			add = 15
+			desc = THEY_ARE_FEMALE_WHEN_MALE_IS_PREFERRED
+			scope:secondary_recipient = {
+				is_adult = yes
+				is_female = yes
+			}
+			scope:actor = {
+				is_adult = yes
+				is_female = no
+				faith = {
+					has_doctrine = doctrine_gender_male_dominated
+				}
+			}
+		}
+		
+		modifier = { # Bonus for women if a man under female preference
+			add = 15
+			desc = THEY_ARE_MALE_WHEN_FEMALE_IS_PREFERRED
+			scope:secondary_recipient = {
+				is_adult = yes
+				is_female = no
+			}
+			scope:actor = {
+				is_adult = yes
+				is_female = yes
+				faith = {
+					has_doctrine = doctrine_gender_female_dominated
+				}
+			}
+		}
+		
+		modifier = { # Penalty for women to ask claims on men under male preference
+			add = -15
+			desc = I_AM_FEMALE_WHEN_MALE_IS_PREFERRED
+			scope:actor = {
+				is_adult = yes
+				is_female = yes
+				faith = {
+					has_doctrine = doctrine_gender_male_dominated
+				}
+			}
+			scope:secondary_recipient = {
+				is_adult = yes
+				is_female = no
+			}
+		}
+		
+		modifier = { # Penalty for men to ask claims on women under female preference
+			add = -15
+			desc = I_AM_MALE_WHEN_FEMALE_IS_PREFERRED
+			scope:actor = {
+				is_adult = yes
+				is_female = no
+				faith = {
+					has_doctrine = doctrine_gender_female_dominated
+				}
+			}
+			scope:secondary_recipient = {
+				is_adult = yes
+				is_female = yes
+			}
+		}
+		#ARKO religious reasonning, excommunication matters more
+		modifier = { # They are Excommunicated
+			add = 35 #ex 25
+			desc = THEY_ARE_EXCOMMUNICATED
+			scope:secondary_recipient = {
+				has_trait = excommunicated
+			}
+		}
+		#ARKO kinslayers matters, really	
+		modifier = { # I am a Kinslayer
+			add = -50 #ex -15
+			desc = I_AM_A_KINSLAYER
+			scope:actor = {
+				has_trait_rank = {
+					trait = kinslayer
+					rank >= 1
+				}
+			}
+		}
+		modifier = { # They are a Kinslayer
+			add = 50 #ex 15
+			desc = THEY_ARE_A_KINSLAYER
+			scope:secondary_recipient = {
+				has_trait_rank = {
+					trait = kinslayer
+					rank >= 1
+				}
+			}
+		}
+		
+		modifier = { # They are of the same dynasty as the Head of Faith
+			add = -5
+			desc = THEY_ARE_MY_DYNASTY_MEMBER
+			scope:recipient = {
+				is_lowborn = no
+				dynasty = scope:secondary_recipient.dynasty
+				NOR = {
+					house = scope:secondary_recipient.house
+					is_close_or_extended_family_of = scope:actor
+					is_cousin_of = scope:actor
+					is_child_of = scope:actor	
+					scope:recipient.dynasty = scope:actor.dynasty
+				}
+			}
+		}
+		
+		modifier = { # You are of the same dynasty as the Head of Faith
+			add = 5
+			desc = YOU_ARE_MY_DYNASTY_MEMBER
+			scope:recipient = {
+				is_lowborn = no
+				dynasty = scope:actor.dynasty
+				NOR = {
+					is_close_or_extended_family_of = scope:actor
+					is_cousin_of = scope:actor
+					is_child_of = scope:actor
+					scope:recipient.dynasty = scope:secondary_recipient.dynasty
+				}
+			}
+		}
+		
+		modifier = { # They are of the same house as the Head of Faith
+			add = -10
+			desc = THEY_ARE_MY_HOUSE_MEMBER
+			scope:recipient = {
+				is_lowborn = no
+				house = scope:secondary_recipient.house
+				NOR = {
+					house = scope:actor.house
+					is_close_or_extended_family_of = scope:actor
+					is_cousin_of = scope:actor
+					is_child_of = scope:actor	
+					scope:recipient.house = scope:actor.house
+				}
+			}
+		}
+		
+		modifier = { # You are of the same house as the Head of Faith
+			add = 10
+			desc = YOU_ARE_MY_HOUSE_MEMBER
+			scope:recipient = {
+				is_lowborn = no
+				house = scope:actor.house
+				NOR = {
+					is_close_or_extended_family_of = scope:actor
+					is_cousin_of = scope:actor
+					is_child_of = scope:actor
+					scope:recipient.house = scope:secondary_recipient.house
+				}
+			}
+		}
+		
+		modifier = { # Related to the Head of Faith
+			add = 25
+			desc = YOU_ARE_MY_RELATIVE
+			scope:recipient = {
+				OR = {
+					is_close_or_extended_family_of = scope:actor
+					is_cousin_of = scope:actor
+				}
+				NOT = { is_child_of = scope:actor }
+			}
+		}
+		
+		modifier = { # Parent of the Head of Faith
+			add = 50
+			desc = YOU_ARE_MY_PARENT
+			scope:recipient = {
+				is_child_of = scope:actor
+			}
+		}
+		
+		modifier = { # Friend of the Head of Faith
+			add = 15
+			desc = WE_ARE_FRIENDS
+			scope:recipient = {
+				has_relation_friend = scope:actor
+			}
+		}
+		
+		modifier = { # Best Friend of the Head of Faith
+			add = 20
+			desc = WE_ARE_BEST_FRIENDS
+			scope:recipient = {
+				has_relation_best_friend = scope:actor
+			}
+		}
+		
+		modifier = { # Lover of the Head of Faith
+			add = 10
+			desc = WE_ARE_LOVERS
+			scope:recipient = {
+				has_relation_lover = scope:actor
+			}
+		}
+		
+		modifier = { # Rival of the Head of Faith
+			add = -100
+			desc = WE_ARE_RIVALS
+			scope:recipient = {
+				has_relation_rival = scope:actor
+			}
+		}
+		
+		modifier = { # Nemesis of the Head of Faith
+			add = -500
+			desc = WE_ARE_NEMESES
+			scope:recipient = {
+				has_relation_nemesis = scope:actor
+			}
+		}
+		#ARKO sins and virtues wieght more (doubled)	
+		modifier = {
+			add = {
+				add = 20# ex 10
+				multiply = scope:actor.num_virtuous_traits
+			}
+			scope:actor.num_virtuous_traits > 0
+			desc = I_AM_VIRTUOUS
+		}
+		
+		modifier = {
+			add = {
+				add = -20 #ex -10
+				multiply = scope:secondary_recipient.num_virtuous_traits
+			}
+			scope:secondary_recipient.num_virtuous_traits > 0
+			desc = THEY_ARE_VIRTUOUS
+		}
+		
+		modifier = {
+			add = {
+				add = -20 #ex -10
+				multiply = scope:actor.num_sinful_traits
+			}
+			scope:actor.num_sinful_traits > 0
+			desc = I_AM_SINFUL
+		}
+		
+		modifier = {
+			add = {
+				add = 20 #ex 10
+				multiply = scope:secondary_recipient.num_sinful_traits
+			}
+			scope:secondary_recipient.num_sinful_traits > 0
+			desc = THEY_ARE_SINFUL
+		}
+		modifier = {
+			desc = RELIGIOUS_HEAD_INTERACTION_SAVIOR
+			add = 15
+			scope:actor = {
+				has_trait = savior
+			}
+		}
+		modifier = {
+			desc = RELIGIOUS_HEAD_INTERACTION_DIVINE_BLOOD
+			add = 5
+			scope:actor = {
+				has_trait = divine_blood
+			}
+		}
+		modifier = {
+			desc = RELIGIOUS_HEAD_INTERACTION_PARAGON
+			add = 15
+			scope:actor = {
+				has_trait = paragon
+			}
+		}
+		modifier = {
+			desc = RELIGIOUS_HEAD_INTERACTION_CONSECRATED_BLOOD
+			add = 5
+			scope:actor = {
+				has_trait = consecrated_blood
+			}
+		}
+	}
+
+	auto_accept = {
+		custom_description = {
+			text = "spending_hook"
+			subject = scope:actor
+			object = scope:recipient
+			scope:claim_hook = yes
+			scope:actor = { has_strong_hook = scope:recipient }
+		}
+	}
+
+	
+	send_option = {
+		is_shown = {
+			NOT = { scope:actor = scope:recipient }
+		}
+		is_valid = {
+			scope:actor = {
+				has_usable_hook = scope:recipient
+			}
+		}
+		flag = claim_hook
+		localization = GENERIC_SPEND_A_HOOK
+	}
+	should_use_extra_icon = {
+		scope:actor = { has_usable_hook = scope:recipient }
+	}
+	extra_icon = "gfx/interface/icons/character_interactions/hook_icon.dds"
+	
+	send_options_exclusive = no
+	
+	ai_min_reply_days = 1
+	ai_max_reply_days = 5
+	
+	on_accept = {
+		hof_ask_for_claim_interaction_effect = yes
+		scope:secondary_recipient = {
+			trigger_event = religious_interaction.5
+		}
+		scope:actor = {
+			trigger_event = religious_interaction.4
+		}
+	}
+
+	on_decline = {
+		scope:actor = {
+			trigger_event = religious_interaction.42
+		}
+	}
+}
+
+#This interaction is referenced in code! If it's renamed you have to ping a coder

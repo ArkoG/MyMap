@@ -1,0 +1,21 @@
+types ButtonIcons
+{
+	### Icon buttons 60px
+
+	type button_dots = button_icon
+	{
+		texture = "gfx/interface/icons/flat_icons/search.dds"
+		size = {28 28}
+	}
+	type button_pause = button_icon
+	{
+		texture = "gfx/interface/icons/flat_icons/pause.dds"
+		#size = {32 32}
+	}
+	type button_encyclopedia_small = button_icon
+	{
+		texture = "gfx/interface/icons/flat_icons/encyclopedia_small.dds"
+		#size = {32 32}
+	}
+}
+

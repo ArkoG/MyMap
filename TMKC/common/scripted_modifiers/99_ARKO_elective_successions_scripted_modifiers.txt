@@ -1,0 +1,41 @@
+﻿elector_voting_pattern_designated_elector_elective_modifier = {
+	modifier = {
+		scope:candidate = scope:holder_candidate
+		NOR = {
+			this = scope:holder  #But not if it's me.
+			this = scope:candidate  #But not if it's me.
+		}
+		
+		desc = tooltip_loyalty_vicary
+
+		add = 20
+		#scope:liege = { has_realm_law = crown_authority_1 }
+		this = { has_court_position = hre_vicary_court_position }
+	}
+	modifier = {
+		scope:candidate = scope:holder_candidate
+		NOR = {
+			this = scope:holder  #But not if it's me.
+			this = scope:candidate  #But not if it's me.
+		}
+		
+		desc = tooltip_loyalty_vicary
+
+		add = 30
+		scope:holder_candidate = { has_realm_law = crown_authority_2 }
+		this = { has_court_position = hre_vicary_court_position }
+	}
+	modifier = {
+		scope:candidate = scope:holder_candidate
+		NOR = {
+			this = scope:holder  #But not if it's me.
+			this = scope:candidate  #But not if it's me.
+		}
+		
+		desc = tooltip_pet_vicary
+
+		add = 50
+		scope:holder_candidate = { has_realm_law = crown_authority_3 }
+		this = { has_court_position = hre_vicary_court_position }
+	}
+}

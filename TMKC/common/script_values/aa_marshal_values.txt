@@ -1,0 +1,199 @@
+﻿
+
+marshal_train_commanders_monthly_chance_value = {
+	value = marshal_train_commanders_monthly_chance_value_base
+	if = {
+		limit = {
+			councillor_liege_has_erudition_legacy_5_perk = yes
+		}
+		add = marshal_train_commanders_monthly_chance_erudition_bonus
+	}
+	if = {
+		limit = {
+			councillor_liege_has_family_business_bonus = yes
+		}
+		add = marshal_train_commanders_monthly_chance_family_business_bonus
+	}
+	if = {
+		limit = {
+			has_trait = lifestyle_chancellor
+		}
+		add = marshal_train_commanders_monthly_chance_marshal_lifestyle_trait_bonus
+	}
+}
+
+###increase county control
+
+# Final value
+marshal_organize_levies_modifier_value = {
+	add = marshal_organize_levies_base
+	add = marshal_organize_levies_skill_base
+	if = {
+		limit = {
+			councillor_liege_has_erudition_legacy_5_perk = yes
+		}
+		add = marshal_organize_levies_erudition_bonus
+	}
+	if = {
+		limit = {
+			scope:councillor = {
+				culture = scope:councillor_liege.culture
+				culture = { has_cultural_parameter = close_family_better_councillors }
+				is_close_family_of = scope:councillor_liege
+			}
+		}
+		add = marshal_organize_levies_family_business_bonus
+	}
+	if = {
+		limit = {
+			has_trait = lifestyle_marshal
+		}
+		add = marshal_organize_levies_marshal_life_style_trait_bonus
+	}
+}
+
+###Organize levies
+
+# Trait bonus
+marshal_organize_levies_marshal_trait_bonus = {
+	add = {
+		value = marshal_organize_levies_maintenance_base
+		add = marshal_organize_levies_maintenance_skill_base
+		multiply = {
+			if = {
+				limit = {
+					has_trait = marshal_1
+				}
+				add = marshal_task_marshal_1_value
+			}
+			else_if = {
+				limit = {
+					has_trait = marshal_2
+				}
+				add = marshal_task_marshal_2_value
+			}
+			else_if = {
+				limit = {
+					has_trait = marshal_3
+				}
+				add = marshal_task_marshal_3_value
+			}
+		}
+	}
+}
+
+# Final value
+marshal_organize_levies_maintenance_total = {
+	add = marshal_organize_levies_maintenance_base
+	add = marshal_organize_levies_maintenance_skill_base
+	if = {
+		limit = {
+			scope:councillor = {
+				councillor_liege_has_erudition_legacy_5_perk = yes
+			}
+		}
+		add = marshal_organize_levies_maintenance_erudition_bonus
+	}
+	if = {
+		limit = {
+			scope:councillor = {
+				culture = scope:councillor_liege.culture
+				culture = { has_cultural_parameter = close_family_better_councillors }
+				is_close_family_of = scope:councillor_liege
+			}
+		}
+		add = marshal_organize_levies_maintenance_family_business_bonus
+	}
+	if = {
+		limit = {
+			scope:councillor = {
+				has_trait = lifestyle_marshal
+			}
+		}
+		add = marshal_organize_levies_marshal_trait_bonus
+	}
+}
+
+
+# ========================= New value ===============================================
+
+marshal_task_marshal_1_value = 0.05
+marshal_task_marshal_2_value = 0.10
+marshal_task_marshal_3_value = 0.15
+
+marshal_organize_levies_marshal_life_style_trait_bonus = {
+	value = marshal_organize_levies_base
+	add = marshal_organize_levies_skill_base
+	if = {
+		limit = {
+			has_trait = marshal_1
+		}
+		multiply = marshal_task_marshal_1_value
+	}
+	else_if = {
+		limit = {
+			has_trait = marshal_2
+		}
+		multiply = marshal_task_marshal_2_value
+	}
+	else_if = {
+		limit = {
+			has_trait = marshal_3
+		}
+		multiply = marshal_task_marshal_3_value
+	}
+}
+
+
+# Marshal lifestyle value
+marshal_train_commanders_monthly_chance_marshal_lifestyle_trait_bonus = {
+	add = marshal_train_commanders_monthly_chance_value_base
+	multiply = {
+		if = {
+			limit = {
+				has_trait = marshal_1
+			}
+			add = marshal_task_marshal_1_value
+		}
+		else_if = {
+			limit = {
+				has_trait = marshal_2
+			}
+			add = marshal_task_marshal_2_value
+		}
+		else_if = {
+			limit = {
+				has_trait = marshal_3
+			}
+			add = marshal_task_marshal_3_value
+		}
+	}
+}
+
+
+# Trait bonus
+marshal_increase_county_control_marshal_bonus = {
+
+	value = marshal_increase_control_base_total
+	# Add bonus from marshal_1
+	if = {
+		limit = {
+			has_trait = marshal_1
+		}
+		multiply = marshal_task_marshal_1_value
+	}
+	# Add bonus from trait marshal_2
+	else_if = {
+		limit = {
+			has_trait = marshal_2
+		}
+		multiply = marshal_task_marshal_2_value
+	}
+	# Add bonus from trait marshal_3
+	else_if = {
+		limit = {
+			has_trait = marshal_3
+		}
+		multiply = marshal_task_marshal_3_value
+	}
+}

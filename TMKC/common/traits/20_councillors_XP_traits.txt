@@ -1,0 +1,530 @@
+﻿###Councillor's experience trait by Slaneche (lite version, toned down, loc fixes FR)
+chancellor_1 = {
+	diplomacy = 1	
+	group = lifestyle_chancellor
+	level = 1
+	lifestyle = yes
+
+	ruler_designer_cost = 20
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = IMPROVED_CHANCELLOR_1_EFFECT_DESC
+			}
+			desc = IMPROVED_CHANCELLOR_1_EFFECT_DESC
+		}
+		desc = line_break
+		desc = line_break
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_chancellor_1_desc
+			}
+			desc = trait_chancellor_1_character_desc
+		}
+	}
+
+	ai_rationality = 10
+}
+
+chancellor_2 = {
+	diplomacy = 1	
+	group = lifestyle_chancellor
+	level = 2
+	lifestyle = yes
+	liege_opinion = 5
+	monthly_diplomacy_lifestyle_xp_gain_mult = 0.05
+
+	ruler_designer_cost = 40
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = IMPROVED_CHANCELLOR_2_EFFECT_DESC
+			}
+			desc = IMPROVED_CHANCELLOR_2_EFFECT_DESC
+		}
+		desc = line_break
+		desc = line_break
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_chancellor_2_desc
+			}
+			desc = trait_chancellor_2_character_desc
+		}
+	}
+
+	ai_rationality = 20
+}
+
+chancellor_3 = {
+	diplomacy = 2
+	group = lifestyle_chancellor
+	level = 3
+	lifestyle = yes
+	liege_opinion = 10
+	monthly_diplomacy_lifestyle_xp_gain_mult = 0.1
+
+	ruler_designer_cost = 60
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = IMPROVED_CHANCELLOR_3_EFFECT_DESC
+			}
+			desc = IMPROVED_CHANCELLOR_3_EFFECT_DESC
+		}
+		desc = line_break
+		desc = line_break
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_chancellor_3_desc
+			}
+			desc = trait_chancellor_3_character_desc
+		}
+	}
+
+	ai_rationality = 30
+}
+
+marshal_1 = {
+	martial = 1	
+	group = lifestyle_marshal
+	level = 1
+	lifestyle = yes
+
+	ruler_designer_cost = 20
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = IMPROVED_MARSHAL_1_EFFECT_DESC
+			}
+			desc = IMPROVED_MARSHAL_1_EFFECT_DESC
+		}
+		desc = line_break
+		desc = line_break
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_marshal_1_desc
+			}
+			desc = trait_marshal_1_character_desc
+		}
+	}
+
+	ai_rationality = 10
+}
+
+marshal_2 = {
+	martial = 1	
+	group = lifestyle_marshal
+	level = 2
+	lifestyle = yes
+	liege_opinion = 5
+	monthly_martial_lifestyle_xp_gain_mult = 0.05
+
+	ruler_designer_cost = 40
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = IMPROVED_MARSHAL_2_EFFECT_DESC
+			}
+			desc = IMPROVED_MARSHAL_2_EFFECT_DESC
+		}
+		desc = line_break
+		desc = line_break
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_marshal_2_desc
+			}
+			desc = trait_marshal_2_character_desc
+		}
+	}
+
+	ai_rationality = 20
+}
+
+marshal_3 = {
+	martial = 2
+	group = lifestyle_marshal
+	level = 3
+	lifestyle = yes
+	liege_opinion = 10
+	monthly_martial_lifestyle_xp_gain_mult = 0.1
+
+	ruler_designer_cost = 60
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = IMPROVED_MARSHAL_3_EFFECT_DESC
+			}
+			desc = IMPROVED_MARSHAL_3_EFFECT_DESC
+		}
+		desc = line_break
+		desc = line_break
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_marshal_3_desc
+			}
+			desc = trait_marshal_3_character_desc
+		}
+	}
+
+	ai_rationality = 30
+}
+
+steward_1 = {
+	stewardship = 1
+	group = lifestyle_steward
+	level = 1
+	lifestyle = yes
+
+	ruler_designer_cost = 20
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = IMPROVED_STEWARD_1_EFFECT_DESC
+			}
+			desc = IMPROVED_STEWARD_1_EFFECT_DESC
+		}
+		desc = line_break
+		desc = line_break
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_steward_1_desc
+			}
+			desc = trait_steward_1_character_desc
+		}
+	}
+
+	ai_rationality = 10
+}
+
+steward_2 = {
+	stewardship = 1	
+	group = lifestyle_steward
+	level = 2
+	lifestyle = yes
+	liege_opinion = 5
+	monthly_stewardship_lifestyle_xp_gain_mult = 0.05
+
+	ruler_designer_cost = 40
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = IMPROVED_STEWARD_2_EFFECT_DESC
+			}
+			desc = IMPROVED_STEWARD_2_EFFECT_DESC
+		}
+		desc = line_break
+		desc = line_break
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_steward_2_desc
+			}
+			desc = trait_steward_2_character_desc
+		}
+	}
+
+	ai_rationality = 20
+}
+
+steward_3 = {
+	stewardship = 2
+	group = lifestyle_steward
+	level = 3
+	lifestyle = yes
+	liege_opinion = 10
+	monthly_stewardship_lifestyle_xp_gain_mult = 0.1
+
+	ruler_designer_cost = 60
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = IMPROVED_STEWARD_3_EFFECT_DESC
+			}
+			desc = IMPROVED_STEWARD_3_EFFECT_DESC
+		}
+		desc = line_break
+		desc = line_break
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_steward_3_desc
+			}
+			desc = trait_steward_3_character_desc
+		}
+	}
+
+	ai_rationality = 30
+}
+
+spymaster_1 = {
+	intrigue = 1	
+	group = lifestyle_spymaster
+	level = 1
+	lifestyle = yes
+
+	ruler_designer_cost = 20
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = IMPROVED_SPYMASTER_1_EFFECT_DESC
+			}
+			desc = IMPROVED_SPYMASTER_1_EFFECT_DESC
+		}
+		desc = line_break
+		desc = line_break
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_spymaster_1_desc
+			}
+			desc = trait_spymaster_1_character_desc
+		}
+	}
+
+	ai_rationality = 10
+}
+
+spymaster_2 = {
+	intrigue = 1	
+	group = lifestyle_spymaster
+	level = 2
+	lifestyle = yes
+	liege_opinion = 5
+	monthly_intrigue_lifestyle_xp_gain_mult = 0.05
+
+	ruler_designer_cost = 40
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = IMPROVED_SPYMASTER_2_EFFECT_DESC
+			}
+			desc = IMPROVED_SPYMASTER_2_EFFECT_DESC
+		}
+		desc = line_break
+		desc = line_break
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_spymaster_2_desc
+			}
+			desc = trait_spymaster_2_character_desc
+		}
+	}
+
+	ai_rationality = 20
+}
+
+spymaster_3 = {
+	intrigue = 2
+	group = lifestyle_spymaster
+	level = 3
+	lifestyle = yes
+	liege_opinion = 10
+	monthly_intrigue_lifestyle_xp_gain_mult = 0.1
+
+	ruler_designer_cost = 60
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = IMPROVED_SPYMASTER_3_EFFECT_DESC
+			}
+			desc = IMPROVED_SPYMASTER_3_EFFECT_DESC
+		}
+		desc = line_break
+		desc = line_break
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_spymaster_3_desc
+			}
+			desc = trait_spymaster_3_character_desc
+		}
+	}
+
+	ai_rationality = 30
+}
+
+chaplain_1 = {
+	learning = 1	
+	group = lifestyle_chaplain
+	level = 1
+	lifestyle = yes
+
+	ruler_designer_cost = 20
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = IMPROVED_CHAPLAIN_1_EFFECT_DESC
+			}
+			desc = IMPROVED_CHAPLAIN_1_EFFECT_DESC
+		}
+		desc = line_break
+		desc = line_break
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_chaplain_1_desc
+			}
+			desc = trait_chaplain_1_character_desc
+		}
+	}
+
+	ai_rationality = 10
+}
+
+chaplain_2 = {
+	learning = 1	
+	group = lifestyle_chaplain
+	level = 2
+	lifestyle = yes
+	liege_opinion = 5
+	monthly_learning_lifestyle_xp_gain_mult = 0.05
+
+	ruler_designer_cost = 40
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = IMPROVED_CHAPLAIN_2_EFFECT_DESC
+			}
+			desc = IMPROVED_CHAPLAIN_2_EFFECT_DESC
+		}
+		desc = line_break
+		desc = line_break
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_chaplain_2_desc
+			}
+			desc = trait_chaplain_2_character_desc
+		}
+	}
+
+	ai_rationality = 20
+}
+
+chaplain_3 = {
+	learning = 2
+	group = lifestyle_chaplain
+	level = 3
+	lifestyle = yes
+	liege_opinion = 10
+	monthly_learning_lifestyle_xp_gain_mult = 0.1
+
+	ruler_designer_cost = 60
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = IMPROVED_CHAPLAIN_3_EFFECT_DESC
+			}
+			desc = IMPROVED_CHAPLAIN_3_EFFECT_DESC
+		}
+		desc = line_break
+		desc = line_break
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_chaplain_3_desc
+			}
+			desc = trait_chaplain_3_character_desc
+		}
+	}
+
+	ai_rationality = 30
+}
