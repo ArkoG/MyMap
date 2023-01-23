@@ -1,2 +1,2 @@
-# TMKC
- Till My Kingdom Come for CK3
+# MyMap
+ MyMap for CK3
